@@ -13,11 +13,19 @@ for i in range(200,sizex,1):
 	surf=np.append(surf,[[i,b,1]],axis=0)
 
 
+# ~ surf=np.append(surf,[[200,1,1]],axis=0)
 
 hexyplo=np.loadtxt("hexagony.txt", comments='#', delimiter=";", converters=None, skiprows=1)
 
 surf=np.append(surf,hexyplo,axis=0)
 
-print (surf)
+print (surf.shape)
 
-np.savetxt("surface.txt", surf,fmt='%s', delimiter=';', newline='\n', header='', footer='', comments='# ', encoding=None)
+surf2=np.unique(surf, axis=0)
+
+print (surf2.shape)
+
+surf2=np.roll(surf2,1, axis=0)
+
+
+np.savetxt("surface.txt", surf2,fmt='%s', delimiter=';', newline='\n', header='', footer='', comments='# ', encoding=None)
