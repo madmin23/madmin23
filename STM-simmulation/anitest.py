@@ -37,8 +37,8 @@ def animate(i):
     tipmove(linescan[i], tipi)
     line, = ax.plot(tipi[:,0],tipi[:,1],color='blue',marker='o')
     ax.plot(linescan[:,0],linescan[:,1],color='red')
-    ax.plot(surf[:,0],surf[:,1],color='green')
-    ax.plot(hexyplo[:,0],hexyplo[:,1],color='teal') # update the data.
+    ax.plot(surf[:,0],surf[:,1],'g.')
+    # ~ ax.plot(hexyplo[:,0],hexyplo[:,1],color='teal') # update the data.
     return line,
 
 

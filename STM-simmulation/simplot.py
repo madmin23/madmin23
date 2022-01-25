@@ -11,15 +11,23 @@ tipi=np.loadtxt("tipi.txt", comments='#', delimiter=";", converters=None, skipro
 hexyplo=np.loadtxt("hexagony.txt", comments='#', delimiter=";", converters=None, skiprows=1)
 #plt.plot(hexyplo[:,0],hexyplo[:,1])
 # ~ plt.plot(tipi[:,0],tipi[:,1])
-plt.scatter(tipi[:,0],tipi[:,1], label='tip')
+# ~ plt.scatter(tipi[:,0],tipi[:,1], label='tip')
+plt.plot(tipi[:,0],tipi[:,1], 'b.', label='tip')
 #plt.scatter(hexyplo[:,0],hexyplo[:,1])
 #plt.show()
 
 #print linescan[:,0:2]
-sta=int(linescan[0,0])
-sto=int(math.ceil(linescan[-1,0]))
+# ~ sta=int(linescan[0,0])
+# ~ sto=int(math.ceil(linescan[-1,0]))
+
+print (linescan[-1])
+
+sta= np.where(surf[:,0] == np.ceil(linescan[0,0]))[0][0]
+sto= np.where(surf[:,0] == np.floor(linescan[-1,0]))[0][0]
+# ~ sto = 5
+
 print (sta,sto)
-sta=0
+# ~ sta=0
 #plt.plot(surf[:,0:2])
 #plt.plot(surf[:,0],surf[:,1])
 #plt.plot(surf[sta:sto,0],surf[sta:sto,1])

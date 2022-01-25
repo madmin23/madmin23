@@ -7,10 +7,10 @@ tipinit=np.array([0,4,0])
 #current-parameters
 voltset=2.0	#set-Voltage
 ampset=5	#set-Current
-intetset=30 #integrationtime 30
+intetset=20 #integrationtime 30
 
 #image parameters
-pixies=500 # number of measurements
+pixies=1024 # number of measurements
 lengthi=300.0	# spacing of pixels
 tppx=1 #time per pixel 10
 

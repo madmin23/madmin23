@@ -4,10 +4,13 @@ import math
 hexago=np.array([['x','y','m']])
 
 centri = np.array([400.0,41.0,1.0])##### 90 crossi
-centri = np.array([400.0,23.0,1.0])###### 50 crossi
+# ~ centri = np.array([400.0,24.0,1.0])###### 50 crossi
+
+matconstx=.565325
+matconsty=.565325
 
 
-crossi= 50.0
+crossi= 91.0/matconstx
 
 crossihalf = crossi/2
 print (crossihalf)
@@ -31,9 +34,21 @@ for face in range(6):
 		print (angli)
 		punktos =centri + ([crossihalf*np.cos((math.pi)/6.0)*np.cos(angli), crossihalf*np.cos((math.pi)/6.0)*np.sin(angli),0])+([-(crossiq-(lini*res*1.0))*np.sin(angli),(crossiq-(lini*res*1.0))*np.cos(angli),0])
 		print (punktos)
-		punktos=(np.floor(punktos[0]),np.floor(punktos[1]),punktos[2])
-		hexago=np.append(hexago,[punktos],axis=0)
+		punktosff=(np.floor(punktos[0]),np.floor(punktos[1]),punktos[2])
+		hexago=np.append(hexago,[punktosff],axis=0)
+		punktoscc=(np.ceil(punktos[0]),np.ceil(punktos[1]),punktos[2])
+		hexago=np.append(hexago,[punktoscc],axis=0)
+		punktosfc=(np.floor(punktos[0]),np.ceil(punktos[1]),punktos[2])
+		hexago=np.append(hexago,[punktosfc],axis=0)
+		punktoscf=(np.ceil(punktos[0]),np.floor(punktos[1]),punktos[2])
+		hexago=np.append(hexago,[punktoscf],axis=0)
 		
 print (hexago)
+
+for j in range(1,hexago.shape[0]):
+	hexago[j]=[float(hexago[j,0])*matconstx,float(hexago[j,1])*matconsty,float(hexago[j,2])]
+
+print(hexago)
+
 
 np.savetxt("hexagony.txt", hexago,fmt='%s', delimiter=';', newline='\n', header='', footer='', comments='# ', encoding=None)
